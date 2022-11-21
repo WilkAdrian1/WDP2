@@ -7,14 +7,13 @@ void wypisz(vector<int>tab)
 {
     for (int i = 0; i < tab.size(); i++)
     {
-        cout << tab[i] << ".";
+        cout << tab[i] << " | ";
     }
-    cout << endl;
 }
 
 int max(vector<int>tab)
 {
-    int wynik = tab[0];
+    int wynik = 0;
     for (int i = 1; i < tab.size(); i++)
     {
         if (tab[i] > wynik)
@@ -25,15 +24,13 @@ int max(vector<int>tab)
     return wynik;
 }
 
-
-bool czyNalezy(vector<int>tab,int element)
+bool czyNalezy(vector<int>tab, int element)
 {
     for (int i = 0; i < tab.size(); i++)
     {
         if (element == tab[i])
         {
             return true;
-
         }
     }
     return false;
@@ -41,8 +38,12 @@ bool czyNalezy(vector<int>tab,int element)
 
 int main()
 {
-    vector<int>tab = { 8,5,4,7,3 };
+    vector<int>tab = { 4,5,6,7,8,9,10 };
     int element = 5;
-    bool wynik = czyNalezy(tab,element);
+    wypisz(tab);
+    cout << endl;
+    cout << max(tab) << endl;
+    bool wynik = czyNalezy(tab, element);
     cout << wynik;
 }
+
