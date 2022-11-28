@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void wypisz(vector<int>tab)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        cout << tab[i] << " | ";
+    }
+}
+
+int max(vector<int>tab)
+{
+    int wynik = 0;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (tab[i] > wynik)
+        {
+            wynik = tab[i];
+        }
+    }
+    return wynik;
+}
+
+bool czyNalezy(vector<int>tab, int element)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (element == tab[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool czyZawiera(vector<int>tab, vector<int>tab2)
+{
+    for (int i = 0; i < tab2.size(); i++)
+    {
+        if (!czyNalezy(tab, tab2[i]))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    vector<int>tab = { 1,2,3,4,5 };
+    vector<int>tab2 = { 1,2,3 };
+    int element = 5;
+    wypisz(tab);
+    cout << endl;
+    cout << max(tab) << endl;
+    bool wynik = czyNalezy(tab, element);
+    cout << wynik << endl;
+    bool wynik2 = czyZawiera(tab, tab2);
+    cout << wynik2;
+}
