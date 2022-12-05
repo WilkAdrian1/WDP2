@@ -1,0 +1,92 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void wypisz(vector<int>tab)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        cout << tab[i] << " | ";
+    }
+}
+int max(vector<int>tab)
+{
+    int wynik = 0;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (tab[i] > wynik)
+        {
+            wynik = tab[i];
+        }
+    }
+    return wynik;
+}
+bool czyNalezy(vector<int>tab, int element)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (element == tab[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool czyZawiera(vector<int>tab, vector<int>tab2)
+{
+    for (int i = 0; i < tab2.size(); i++)
+    {
+        if (!czyNalezy(tab, tab2[i]))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+vector<int>unikalnosc(vector<int>tab)
+{
+    vector<int>wynik;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (!czyNalezy(wynik, tab[i]))
+        {
+            wynik.push_back(tab[i]);
+        }
+    }
+    return wynik;
+}
+
+int suma(vector<int>tab, int sum)
+{
+    for (int i = 0; i < tab.size(); i++)
+    {
+        sum = tab[i] + tab[i+1];
+        i++;
+    }
+    return sum;
+}
+
+int main()
+{
+    int sum = 0;
+    int element = 5;
+    vector<int>tab = { 1,2,3,4,5,5 };
+    vector<int>tab2 = { 1,2,3 };
+    wypisz(tab);
+    cout << max(tab) << endl;
+    bool wynik = czyNalezy(tab, element);
+    cout << wynik << endl;
+    bool wynik2 = czyZawiera(tab, tab2);
+    cout << wynik2 << endl;
+    vector<int>wynik3 = unikalnosc(tab);
+    wypisz(wynik3);
+    cout << endl;
+    cout << sum << endl;
+}
+    //1. przyklad
+    //2. sprawdz czy kompletny
+    //3. sformalizowanie przykladu
+    //4. nagłowek funkcji
+    //5.ciało funkcji
+    //6.nie wiesz co robi? wroc do przykladu
