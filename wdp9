@@ -1,0 +1,118 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void wypisz(vector<int>tab)
+{
+	for (int i = 0; i < tab.size(); i++)
+	{
+		cout << tab[i] << " | ";
+	}
+}
+
+int max(vector<int>tab)
+{
+	int wynik = 0;
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (tab[i] > wynik)
+		{
+			wynik = tab[i]
+		}
+	}
+	return wynik;
+}
+
+bool czyNalezy(vector<int>tab, int element)
+{
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (element == tab[i])
+		{
+			return true;
+		}
+	}
+	return false;
+}
+bool czyZawiera(vector<int>tab, vector<int>tab2)
+{
+	for (int i = 0; i < tab2.size(); i++)
+	{
+		if (!czyNalezy(tab, tab2[i]))
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+vector<int>unikalnosc(vector<int>tab)
+{
+	vector<int>wynik;
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (!czyNalezy(tab, tab[i]))
+		{
+			wynik.push_back(tab[i]);
+		}
+	}
+	return wynik;
+}
+
+int suma(vector<int>tab)
+{
+	int suma;
+	for (int i = 0; i < tab.size(); i++)
+	{
+		suma = suma + tab[i];
+	}
+	return suma;
+}
+
+double avg(vector<int>tab)
+{
+	double wynik =  suma(tab);
+	return wynik / tab.size();
+}
+
+vector<int>podzielna(vector<int>tab, int dzielnik, int reszta = 0)
+{
+	vector<int>wynik;
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (tab[i] % dzielnik == reszta)
+		{
+			wynik.push_back(tab[i]);
+		}
+	}
+	return wynik;
+}
+
+
+int main()
+{
+	vector<int>tab = { 1,2,3,4,5,5 };
+	vector<int>tab2 = { 1,2,3 };
+	int element = 5;
+	wypisz(tab);
+	cout << endl;
+	cout << max(tab);
+	bool wynik = czyNalezy(tab, element);
+	cout << wynik << endl;
+	bool wynik2 = czyZawiera(tab, tab2);
+	cout << wynik2 << endl;
+	cout << suma << endl;
+	double wynik3 = avg(tab);
+	cout << wynik3 << endl;
+	wypisz(podzielna(tab, 5, 0));
+	
+
+   
+}
+ 1.przyklad
+ 2.czy kompletny
+ 3.sformalizuj przyklad
+ 4.nagłowek funkcji
+ 5.cialo funkcji
+ 6nie wiesz co robisz wroc do przyklad
