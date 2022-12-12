@@ -116,3 +116,32 @@ int main()
  4.nagłowek funkcji
  5.cialo funkcji
  6nie wiesz co robisz wroc do przyklad
+ 
+ do domu wszystkie funkcje jakie byly zmienic for na while 
+ pliki (obsługa plikow)odczyt i zapis pliku 
+ funkcja częstość(unikalnosc)
+ wejscowka + mapa dzialania na niej
+ 
+ #include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	vector<int>tab = { 8,7,1,2,1,7,2,8 };
+	map<int, int>m;
+	m.insert({ 7,5 });
+	m.insert({ -4,2 });
+	for (auto& el : m)
+	{
+		cout << el.first;
+		cout << el.secend;
+	}
+
+}
+
+if(m.find(key)!=m.end()
+{
+//gdy znajdzie
+}
