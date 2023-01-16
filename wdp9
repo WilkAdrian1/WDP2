@@ -145,3 +145,51 @@ if(m.find(key)!=m.end()
 {
 //gdy znajdzie
 }
+
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+
+int main()
+{
+
+    string str = "Ala ma kota";
+    char znak = 'a';
+
+    for (int i = 0; i < str.size(); i++)
+    {
+        if (str[i] == znak)
+        {
+            str[i] = ' ';
+        }
+    }
+
+    cout << str;
+}
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+void convertToASCII(string s)
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        cout << (int)s[i] << endl;
+    }
+}
+
+
+int main()
+{
+    string plainText;
+    cout << "Enter text to convert to ASCII: ";
+    getline(cin, plainText);
+    convertToASCII(plainText);
+
+    return 0;
+}
