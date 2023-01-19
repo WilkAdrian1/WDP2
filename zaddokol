@@ -1,0 +1,95 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+double spalanie(int a, int b)
+{
+	double wynik = a * b / 100;
+	return wynik;
+}
+
+int zad2(int n, vector<int>tab)
+{
+	int suma = 0;
+	for (int i = 0; i < tab.size(); i++) 
+	{
+		if (!(tab[i] % 6))
+		{
+			n--;
+			suma += tab[i];
+		}
+	}
+	return suma;
+}
+
+double potegi(int x, int n2)
+{
+	double wynik3 = x;
+	if (n2 != 0)
+	{
+		for (int i = 1; i < n2; i++)
+		{
+			wynik3 = wynik3 * x;
+		}
+	}
+	else
+		wynik3 = 1;
+	return wynik3;
+}
+
+bool zad4(int c)
+{
+	int liczba = 0, liczbap = c;
+	while (c > 0)
+	{
+		liczba = liczbap * 10 + c % 10;
+		c /= 10;
+	}
+	return liczba == liczbap;
+}
+void zad5(int w)
+{
+	int x = 2;
+	int y = 1;
+	for (int i = 0; i < w; i++)
+	{
+		int liczba = x;
+		for (int j = 0; j < y; j++)
+		{
+			cout << liczba << " ";
+			liczba = liczba + x;
+		}
+		cout << "\n";
+		y = y + 1;
+		x *= 2;
+	}
+}
+int main()
+{
+	//zad1
+	int a = 150;
+	int b = 8;
+	double wynik = spalanie(a, b);
+	cout << wynik << endl;
+	//zad2
+	int n = 4;
+	vector<int>tab = { 6,12,18,24 };
+	int wynik2 = zad2(n, tab);
+	cout << wynik2 << endl;
+	//zad3
+	int n2 = 3;
+	int x = 2;
+	double wynik3 = potegi(x, n2);
+	cout << wynik3 << endl;
+	//zad4
+	int c = 1001;
+	bool wynik4 = zad4(c);
+	cout << wynik4 << endl;
+	//zad5
+	int w = 5;
+	zad5(w);
+
+}
