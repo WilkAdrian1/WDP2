@@ -93,3 +93,141 @@ int main()
 	zad5(w);
 
 }
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+//zad1
+void naj(vector<int> liczby) 
+{
+    int max = liczby[0] + liczby[1];
+    int z;
+    int j = 1;
+    for (int i = 0; i < liczby.size(); i++) 
+    {
+        z = liczby[i];
+        if (z > max) 
+        {
+            max = z;
+        }
+        while (j < liczby.size()) 
+        {
+            z = z + liczby[j];
+            if (z > max) 
+            {
+                max = z;
+            }
+            j++;
+        }
+        z = 0;
+        j = i + 2;
+    }
+    cout << max;
+}
+//zad2
+int najdluzszy(vector<int>tab2)
+{
+    int suma = 0;
+    int naj = 0;
+    for (int i = 0; i < tab2.size(); i++)
+    {
+        if (tab2[i] % 2 == 0)
+        {
+            suma = suma + 1;
+            if (naj < suma)
+            {
+                naj = suma;
+            }
+        }
+        else 
+        {
+            suma = 0;
+        }
+    }
+    return naj;
+}
+//zad3
+int suma(vector<int>tab3, int a, int b)
+{
+    int suma = 0;
+    for (int i = 0; i < tab3.size(); i++)
+    {
+        if (tab3[i] % a == 0 && tab3[i] < b)
+        {
+            suma = tab3[i] + suma;
+        }
+    }
+    return suma;
+}
+//zad4
+void czypotega(int x)
+{
+    bool szukana = false;
+    for (int y = 2; y <= sqrt(x); y++)
+    {
+        for (int n = 2; pow(y, n) <= x; n++)
+        {
+            if (pow(y, n) == x)
+            {
+                cout << "wynik:" << y << "^" << n << " = " << x << endl;
+                szukana = true;
+                break;
+            }
+        }
+    }
+
+    if (!szukana)
+    {
+        cout << "wynik: NIE" << endl;
+    }
+}
+//zad5
+void pierwsze(int n)
+{
+    int ile = 0;
+    int x = 0;
+    for (int i = 1; ile < n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            if (i % j == 0)x++;
+        }
+        if (x == 2)
+        {
+            cout << i << endl;
+            ile++;
+        }
+        x = 0;
+    }
+}
+
+
+int main()
+{
+    //zad1
+    vector<int> liczby = { 2,4,-6,7 };
+    naj(liczby);
+    cout << endl;
+    //zad2
+    vector<int>tab2 = { 1,8,2,4,6,7,5,12,18 };
+    int naj = najdluzszy(tab2);
+    cout << naj;
+    cout << endl;
+    //zad3
+    int a = 3;
+    int b = 7;
+    vector<int>tab3 = { 6,8,9,3,3,20,1 };
+    int wynik3 = suma(tab3, a, b);
+    cout << wynik3;
+    cout << endl;
+    //zad4
+    int x;
+    cout << "Podaj liczbe dodatnia x: ";
+    cin >> x;
+    czypotega(x);
+    cout << endl;
+    //zad5
+    int n = 5;
+    pierwsze(n);
+}
